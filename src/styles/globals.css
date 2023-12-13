@@ -1,3 +1,7 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
 *,
 :after,
 :before {
@@ -63,9 +67,10 @@ img {
 }
 
 .bg-blue {
-  background-color: #69baff;
+  background-color: #84B6F6;
   color: #000;
 }
+
 .bg-navy {
   background-color: #1d2a91;
 }
@@ -310,7 +315,7 @@ p {
   border-bottom: 2px solid #000;
 }
 .bg-salmon {
-  background-color: #ffc900;
+  background-color: #FBF6EB;
   color: #000;
 }
 .bg-pink {
@@ -741,6 +746,7 @@ article.product {
   color: var(--primary);
   border: solid 0.0625rem currentColor;
   border-radius: 0.25rem;
+  
 }
 
 article.product > section > header:not(:first-child),
@@ -879,7 +885,8 @@ article.product-card footer > * {
   font-weight: 600;
   padding: 0.5rem 0.75rem;
   background-color: #fff;
-  background-color: var(--background);
+  /* background-color: var(--background); */
+  background-color: #84B6F6;
   color: #000;
   color: var(--primary);
   border: solid 0.0625rem currentColor;
@@ -892,6 +899,12 @@ article.product-card footer > * {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  
+}
+
+.pill:hover{
+  filter: drop-shadow(2px 2px 0px #000000);
+  cursor:pointer;
 }
 
 .stack {
@@ -901,10 +914,6 @@ article.product-card footer > * {
   color: #000;
   border: solid 0.0625rem currentColor;
   border-radius: 0.25rem;
-}
-
-.bg-salmon {
-  background-color: #ffa475;
 }
 
 .logo-container {
