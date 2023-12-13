@@ -71,7 +71,7 @@ async function updateSubscription(event) {
       email,
       stripe_customer_id,
       subscription_status,
-      price
+      price,
     }
     await supabase.auth.admin.createUser({
       email,
