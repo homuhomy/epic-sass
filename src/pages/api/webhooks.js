@@ -12,7 +12,7 @@ export default async function handler(req, res) {
   const signature = req.headers["stripe-signature"];
   const signingSecret = process.env.STRIPE_SIGNING_SECRET;
 
-  const rawBody = await getRawBody(req);
+  //const rawBody = await getRawBody(req);
 
   let event;
 
