@@ -44,7 +44,7 @@ export default function LoginForm({setSubmitted}) {
         {/* <input id="otp" type=""/> */}
       </div>
       <button disabled={isLoading} type="submit" className="large-button">
-        <div className="large-button-text">Login</div>
+        <div className="large-button-text">{isLoading ? "Logging in..." : "Log In"}</div>
       </button>
     </form>
   );
