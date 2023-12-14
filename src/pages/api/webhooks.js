@@ -81,4 +81,16 @@ async function updateSubscription(event) {
   }
 }
 
-async function deleteSubscription(event) {}
+async function deleteSubscription(event) {
+  const subscription = event.data.object;
+  const stripe_customer_id = subscription.customer;
+  const subscription_status = subscription.status;
+  const deletedSubscription = {
+    subscription_status,
+    price: null
+  }
+  await supabase
+    .from("profile")
+    .update(deletedSubscription)
+    .eq("stripe_customer_id", stripe_customer_id);
+}
