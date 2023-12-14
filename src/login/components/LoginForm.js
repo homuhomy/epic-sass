@@ -1,7 +1,7 @@
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
 import { useState } from "react";
 
-export default function LoginForm() {
+export default function LoginForm({setSubmitted}) {
   const supabaseClient = useSupabaseClient();
   const [error, setError] = useState('');
   const [isLoading, setLoading] = useState(false);
@@ -23,6 +23,7 @@ export default function LoginForm() {
     }else{
       setError('');
       setLoading(false);
+      setSubmitted(email);
     }
   }
 
@@ -36,7 +37,7 @@ export default function LoginForm() {
 
       }
       <h1>Hi there!</h1>
-      <h5>Enter your e-mail to receive the code to login or sign up</h5>
+      <p>Enter your e-mail to receive the code to login or sign up</p>
       <div className="email-input">
         <label htmlFor="email"></label>
         <input id="email" type="email" autoComplete="email"/>
