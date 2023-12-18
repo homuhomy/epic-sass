@@ -25,7 +25,7 @@ export default function ProductPage({ product }) {
         <div className="product-wrap">
           {productContent?.download_url &&(
             <a href={`/assets/${productContent.download_url}`} download className="download-link large-button">
-              <span className="btn btn-secondary">Download</span>
+              <span className="large-button-text">Download</span>
             </a>
           )}
           <Image
