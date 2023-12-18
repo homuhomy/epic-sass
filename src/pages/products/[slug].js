@@ -23,6 +23,11 @@ export default function ProductPage({ product }) {
     <section className="product-section">
       <article className="product">
         <div className="product-wrap">
+          {productContent?.download_url &&(
+            <a href={`/assets/${productContent.download_url}`} download className="download-link large-button">
+              <span className="btn btn-secondary">Download</span>
+            </a>
+          )}
           <Image
             width={1000}
             height={300}
