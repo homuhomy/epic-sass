@@ -1,8 +1,22 @@
 import { supabase } from "supabase";
 import Image from "next/image";
 import PromoCard from "src/products/components/PromoCard";
+import { useSupabaseClient } from "@supabase/auth-helpers-react";
+import { useEffect, useState } from "react";
 
 export default function ProductPage({ product }) {
+  const supabaseClient = useSupabaseClient()
+  const [productContent, setProductContent] = useState(null)
+
+  useEffect(()=>{
+    async function getProductContent(){
+      const { data: productContent } = await supabaseClient.from('product_content').select('*').eq('id', product.product_content_id).single();
+      setProductContent(productContent)
+    }
+
+    getProductContent()
+  },[supabaseClient])
+
   console.log(product);
 
   return (
