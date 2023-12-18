@@ -1,4 +1,4 @@
-import { useSession, useSupabaseClient, useUser } from "@supabase/auth-helpers-react";
+import { useSession, useSupabaseClient } from "@supabase/auth-helpers-react";
 import Link from "next/link";
 import Logo from "src/core/components/Logo";
 import { SITE_URL } from "../utils";
@@ -14,7 +14,7 @@ export default function Navbar() {
   }
 
   async function onManageBilling(){
-    const response = await fetch(`${SITE_URL}/manage-billing`)
+    const response = await fetch(`${SITE_URL}/api/manage-billing`)
     const data = await response.json()
     if(data){
       window.location.href = data.url;
