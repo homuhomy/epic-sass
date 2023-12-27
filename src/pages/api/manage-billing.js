@@ -1,32 +1,32 @@
-import { createServerSupabaseClient } from "@supabase/auth-helpers-nextjs";
-import { SITE_URL } from "src/core/utils";
-import { stripe } from "src/pricing/utils/stripe";
+// import { createServerSupabaseClient } from "@supabase/auth-helpers-nextjs";
+// import { SITE_URL } from "src/core/utils";
+// import { stripe } from "src/pricing/utils/stripe";
 
-export default async function handler(req, res) {
-  //find the current user
-  const supabaseServerClient = createServerSupabaseClient({
-    req,
-    res,
-  });
+// export default async function handler(req, res) {
+//   //find the current user
+//   const supabaseServerClient = createServerSupabaseClient({
+//     req,
+//     res,
+//   });
 
-  const {
-    data: { user },
-  } = await supabaseServerClient.auth.getUser();
+//   const {
+//     data: { user },
+//   } = await supabaseServerClient.auth.getUser();
 
-  if (!user) {
-    return res.status(401).send("Unauthorized");
-  }
+//   if (!user) {
+//     return res.status(401).send("Unauthorized");
+//   }
 
-  const { data: profile } = await supabaseServerClient
-    .from("profile")
-    .select("stripe_customer_id")
-    .eq("user_id", user.id)
-    .single();
+//   const { data: profile } = await supabaseServerClient
+//     .from("profile")
+//     .select("stripe_customer_id")
+//     .eq("user_id", user.id)
+//     .single();
 
-  const session = await stripe.billingPortal.sessions.create({
-    customer: profile.stripe_customer_id,
-    return_url: SITE_URL,
-  });
+//   const session = await stripe.billingPortal.sessions.create({
+//     customer: profile.stripe_customer_id,
+//     return_url: SITE_URL,
+//   });
 
-  res.send({url: session.url});
-}
+//   res.send({url: session.url});
+// }
