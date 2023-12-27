@@ -19,43 +19,31 @@ export default function LoginForm({ setSubmitted }) {
     }
 
     try {
-      // Check if user exists in profile table
-      let { data, error: selectError } = await supabaseClient
-        .from("user_profile")
-        .select("email")
-        .eq("email", email);
-
-      // If user does not exist, create new user
-      if (!data && !selectError) {
-        let { error: insertError } = await supabaseClient
-          .from("user_profile")
-          .insert([{ email: email }]);
-
-        if (insertError) throw insertError;
-      }
-
       // Handle OTP authentication
-      const { error: authError } = await supabaseClient.auth.signInWithOtp({
-        email,
-        options: {
-          shouldCreateUser: true,
-          emailRedirectTo: window.location.origin,
-        },
-      });
+      const { user, error: authError } =
+        await supabaseClient.auth.signInWithOtp({
+          email,
+          options: {
+            shouldCreateUser: true,
+            emailRedirectTo: window.location.origin,
+          },
+        });
 
       if (authError) throw authError;
+
+      // If the user is successfully authenticated, insert or update their profile
+      if (user) {
+        await supabaseClient
+          .from("user_profile")
+          .upsert({ auth_user_id: user.id, email: email });
+      }
+
       setSubmitted(email);
     } catch (error) {
       setError(error.message);
     } finally {
       setLoading(false);
     }
-    if (user) {
-      await supabaseClient
-        .from("user_profile")
-        .upsert({ auth_user_id: user.id, email: email });
-    }
-    setSubmitted(email);
   }
 
   return (
