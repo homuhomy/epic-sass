@@ -43,9 +43,9 @@ export default function Navbar() {
           <Link href="/login" className="nav-link white">
             <div>Login</div>
           </Link>
-          <Link href="/pricing" className="nav-link border-left white">
+          {/* <Link href="/pricing" className="nav-link border-left white">
             <div>Pricing</div>
-          </Link>
+          </Link> */}
           <Link href="/dnd" className="nav-link black">
             <div>React DND</div>
           </Link>
