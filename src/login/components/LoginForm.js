@@ -3,7 +3,7 @@ import { useState } from "react";
 
 export default function LoginForm({ setSubmitted }) {
   const supabaseClient = useSupabaseClient();
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
   const [isLoading, setLoading] = useState(false);
 
   async function onSubmit(event) {
@@ -21,15 +21,15 @@ export default function LoginForm({ setSubmitted }) {
     try {
       // Check if user exists in profile table
       let { data, error: selectError } = await supabaseClient
-        .from('user_profile')
-        .select('email')
-        .eq('email', email)
+        .from("profile")
+        .select("email")
+        .eq("email", email)
         .single();
 
       // If user does not exist, create new user
       if (!data && !selectError) {
         let { error: insertError } = await supabaseClient
-          .from('user_profile')
+          .from("profile")
           .insert([{ email: email }])
           .single();
 
@@ -42,7 +42,7 @@ export default function LoginForm({ setSubmitted }) {
         options: {
           shouldCreateUser: true,
           emailRedirectTo: window.location.origin,
-        }
+        },
       });
 
       if (authError) throw authError;
