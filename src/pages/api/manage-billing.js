@@ -28,5 +28,5 @@
 //     return_url: SITE_URL,
 //   });
 
-//   res.send({url: session.url});
+//   res.send({ url: session.url });
 // }
