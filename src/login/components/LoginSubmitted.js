@@ -47,9 +47,7 @@ export default function LoginSubmitted({ submitted }) {
         onChange={(e) => setOtp(e.target.value)}
       />
       <button onClick={onVerify} className="large-button">
-        <div className="large-button-text">
-          {isLoading ? "Verifying..." : "Verify"}
-        </div>
+        <div className="large-button-text">Verify</div>
       </button>
       {error && <div className="danger">{error}</div>}
     </div>
