@@ -16,8 +16,8 @@ export default function HomePage() {
             <p className="section-subtitle">
             Tinjauan Kesedaran Agile 2024
             </p>
-            <Link href="/products" className="large-button">
-                <div className="large-button-text">View products</div>
+            <Link href="/login" className="large-button">
+                <div className="large-button-text">Login</div>
             </Link>
           </div>
         </div>
