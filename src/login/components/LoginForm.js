@@ -21,7 +21,7 @@ export default function LoginForm({ setSubmitted }) {
     try {
       // Check if user exists in profile table
       let { data, error: selectError } = await supabaseClient
-        .from("profile")
+        .from("user_profile")
         .select("email")
         .eq("email", email)
         .single();
@@ -29,7 +29,7 @@ export default function LoginForm({ setSubmitted }) {
       // If user does not exist, create new user
       if (!data && !selectError) {
         let { error: insertError } = await supabaseClient
-          .from("profile")
+          .from("user_profile")
           .insert([{ email: email }])
           .single();
 
