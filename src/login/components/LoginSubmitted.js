@@ -22,7 +22,7 @@ export default function LoginSubmitted({ submitted }) {
   async function onVerify() {
     try {
       const { user, error: verifyError } = await supabaseClient.auth.verifyOtp({
-        type: 'magiclink', 
+        type: 'signup', 
         email: submitted,
         token: otp
       });
@@ -46,7 +46,7 @@ export default function LoginSubmitted({ submitted }) {
         value={otp}
         onChange={(e) => setOtp(e.target.value)}
       />
-      <button onClick={onVerify}>Verify</button>
+      <button onClick={onVerify} className="large-button"><div className="large-button-text">Verify</div></button>
       {error && <div className="danger">{error}</div>}
     </div>
   );
