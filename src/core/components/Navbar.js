@@ -31,7 +31,7 @@ export default function Navbar() {
           <Link href="/dnd" className="nav-link white">
             <div>Dnd</div>
           </Link>
-          <Link href="/code" className="nav-link white">
+          <Link href="/code" className="nav-link border-left white">
             <div>Referral code</div>
           </Link>
           {/* <a onClick={onManageBilling} className="nav-link border-left white">
