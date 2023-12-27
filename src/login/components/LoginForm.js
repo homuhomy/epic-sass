@@ -23,15 +23,13 @@ export default function LoginForm({ setSubmitted }) {
       let { data, error: selectError } = await supabaseClient
         .from("user_profile")
         .select("email")
-        .eq("email", email)
-        .single();
+        .eq("email", email);
 
       // If user does not exist, create new user
       if (!data && !selectError) {
         let { error: insertError } = await supabaseClient
           .from("user_profile")
-          .insert([{ email: email }])
-          .single();
+          .insert([{ email: email }]);
 
         if (insertError) throw insertError;
       }
@@ -52,6 +50,12 @@ export default function LoginForm({ setSubmitted }) {
     } finally {
       setLoading(false);
     }
+    if (user) {
+      await supabaseClient
+        .from("user_profile")
+        .upsert({ auth_user_id: user.id, email: email });
+    }
+    setSubmitted(email);
   }
 
   return (
