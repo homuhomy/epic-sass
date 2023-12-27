@@ -595,40 +595,40 @@ h1 {
 
 @font-face {
   font-family: Mabry pro;
-  src: url(public/fonts/mabry-regular-pro.woff2) format("woff2"),
-    url(public/fonts/mabry-regular-pro.woff) format("woff");
+  src: url(/fonts/mabry-regular-pro.woff2) format("woff2"),
+    url(/fonts/mabry-regular-pro.woff) format("woff");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: Mabry pro;
-  src: url(public/fonts/mabry-italic-pro.woff2) format("woff2"),
-    url(public/fonts/mabry-italic-pro.woff) format("woff");
+  src: url(/fonts/mabry-italic-pro.woff2) format("woff2"),
+    url(/fonts/mabry-italic-pro.woff) format("woff");
   font-weight: 400;
   font-style: italic;
   font-display: swap;
 }
 @font-face {
   font-family: Mabry pro;
-  src: url(public/fonts/mabry-medium-pro.woff2) format("woff2"),
-    url(public/fonts/mabry-medium-pro.woff) format("woff");
+  src: url(/fonts/mabry-medium-pro.woff2) format("woff2"),
+    url(/fonts/mabry-medium-pro.woff) format("woff");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: Mabry pro;
-  src: url(public/fonts/mabry-medium-italic-pro.woff2) format("woff2"),
-    url(public/fonts/mabry-medium-italic-pro.woff) format("woff");
+  src: url(/fonts/mabry-medium-italic-pro.woff2) format("woff2"),
+    url(/fonts/mabry-medium-italic-pro.woff) format("woff");
   font-weight: 500;
   font-style: italic;
   font-display: swap;
 }
 @font-face {
   font-family: Mabry pro;
-  src: url(public/fonts/mabry-bold-pro.woff2) format("woff2"),
-    url(public/fonts/mabry-bold-pro.woff) format("woff");
+  src: url(/fonts/mabry-bold-pro.woff2) format("woff2"),
+    url(/fonts/mabry-bold-pro.woff) format("woff");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
