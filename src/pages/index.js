@@ -10,11 +10,11 @@ export default function HomePage() {
           <div className="tablet-centered">
             <div className="content-grid home-hero"></div>
             <h1>
-              The most <br />
-              epic products
+              Agile Awareness <br />
+              Survey 2024
             </h1>
             <p className="section-subtitle">
-              All the most epic stuff in one place
+            Tinjauan Kesedaran Agile 2024
             </p>
             <Link href="/products" className="large-button">
                 <div className="large-button-text">View products</div>

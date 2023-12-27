@@ -1,9 +1,53 @@
-export default function LoginSubmitted({submitted}) {
-  return(
+// export default function LoginSubmitted({submitted}) {
+//   return(
+//     <div className="content-grid home-hero">
+//       <h1>Link sent!</h1>
+//       <p>Check your email ({submitted}) to finish logging in</p>
+//     </div>
+//   )
+
+// }
+
+// LoginSubmitted.js
+import { useSupabaseClient } from "@supabase/auth-helpers-react";
+import { useState } from "react";
+import { useRouter } from "next/router";
+
+export default function LoginSubmitted({ submitted }) {
+  const supabaseClient = useSupabaseClient();
+  const [otp, setOtp] = useState('');
+  const [error, setError] = useState('');
+  const router = useRouter();
+
+  async function onVerify() {
+    try {
+      const { user, error: verifyError } = await supabaseClient.auth.verifyOtp({
+        type: 'magiclink', 
+        email: submitted,
+        token: otp
+      });
+
+      if (verifyError) throw verifyError;
+      if (user) {
+        router.push('/success'); 
+      }
+    } catch (error) {
+      setError(error.message);
+    }
+  }
+
+  return (
     <div className="content-grid home-hero">
       <h1>Link sent!</h1>
-      <p>Check your email ({submitted}) to finish logging in</p>
+      <p>Check your email ({submitted}) for the OTP code</p>
+      <input
+        type="text"
+        placeholder="Enter OTP code"
+        value={otp}
+        onChange={(e) => setOtp(e.target.value)}
+      />
+      <button onClick={onVerify}>Verify</button>
+      {error && <div className="danger">{error}</div>}
     </div>
-  )
-
+  );
 }

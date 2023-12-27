@@ -43,42 +43,15 @@ export default function Navbar() {
           <Link href="/login" className="nav-link white">
             <div>Login</div>
           </Link>
-          <Link href="/pricing" className="nav-link black">
+          <Link href="/pricing" className="nav-link border-left white">
             <div>Pricing</div>
+          </Link>
+          <Link href="/dnd" className="nav-link black">
+            <div>React DND</div>
           </Link>
         </div>
       )}
     </div>
   );
-
-  // return (
-  //   <div className="nav-container border-b-2 border-black">
-  //     <Link href="/">
-  //       <Logo />
-  //     </Link>
-  //     {session ? (
-  //       <div className="nav-menu">
-  //       <Link href="/login" className="nav-link white">
-  //         <div>Login</div>
-  //       </Link>
-  //       <Link href="/pricing" className="nav-link black">
-  //         <div>Pricing</div>
-  //       </Link>
-  //     </div>
-  //     ) : (
-  //       <div className="nav-menu">
-  //         <Link href="/products" className="nav-link white">
-  //           <div>Products</div>
-  //         </Link>
-  //         <a className="nav-link border-left white">
-  //           <div>Billing</div>
-  //         </a>
-  //         <div onClick={signOut} className="nav-link black">
-  //           <div>Sign out</div>
-  //         </div>
-  //       </div>
-  //     )}
-  //   </div>
-  // );
   
 }
