@@ -14,7 +14,6 @@ export default function App({ Component, pageProps }) {
       initialSession={pageProps.initialSession}
     >
       <Head>
-        <title>Agile Awareness Survey</title>
         <link rel="icon" href="/icon.png" />
       </Head>
       <AppLayout>
