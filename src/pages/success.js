@@ -19,8 +19,8 @@ export default function SuccessPage() {
             You can now access everything on this website.
             <br /> Ready to get started?
           </p>
-          <Link href="/login" className="large-button">
-            <div className="large-button-text">Go to Login</div>
+          <Link href="/" className="large-button">
+            <div className="large-button-text">Go to home</div>
           </Link>
         </div>
       </div>

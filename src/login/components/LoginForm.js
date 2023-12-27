@@ -34,7 +34,7 @@ export default function LoginForm({ setSubmitted }) {
       // If the user is successfully authenticated, insert or update their profile
       if (user) {
         await supabaseClient
-          .from("user_profile")
+          .from("profile")
           .upsert({ auth_user_id: user.id, email: email });
       }
 
