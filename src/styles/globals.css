@@ -219,13 +219,13 @@ h4 {
   position: relative;
   padding: 0;
 }
+
 .large-button-text {
   position: relative;
   z-index: 1;
   padding: 1.1rem 2rem 1.2rem;
   border-radius: 4px;
-  background-color: #000;
-  color: #fff;
+  color: #000000;
   font-size: 1.5rem;
   text-align: center;
   text-decoration: none;
@@ -329,6 +329,11 @@ p {
 }
 .bg-salmon {
   background-color: #FBF6EB;
+  color: #000;
+}
+
+.bg-light-salmon {
+  background-color: #FAF5EA;
   color: #000;
 }
 .bg-pink {

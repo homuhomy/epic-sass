@@ -7,10 +7,10 @@ export default function Navbar() {
   // const user = useUser()
   const session = useSession();
   // console.log({ user, session });
-  const supabaseClient = useSupabaseClient()
+  const supabaseClient = useSupabaseClient();
 
-  function signOut(){
-    supabaseClient.auth.signOut()
+  function signOut() {
+    supabaseClient.auth.signOut();
   }
 
   // async function onManageBilling(){
@@ -28,8 +28,8 @@ export default function Navbar() {
       </Link>
       {session ? (
         <div className="nav-menu">
-          <Link href="/dnd" className="nav-link white">
-            <div>Dnd</div>
+          <Link href="/character" className="nav-link border-left white">
+            <div>Character</div>
           </Link>
           <Link href="/code" className="nav-link border-left white">
             <div>Referral code</div>
@@ -46,9 +46,7 @@ export default function Navbar() {
           <Link href="/login" className="nav-link white">
             <div>Login</div>
           </Link>
-          {/* <Link href="/pricing" className="nav-link border-left white">
-            <div>Pricing</div>
-          </Link> */}
+
           <Link href="/dnd" className="nav-link black">
             <div>React DND</div>
           </Link>
@@ -56,5 +54,4 @@ export default function Navbar() {
       )}
     </div>
   );
-  
 }

@@ -1,14 +1,3 @@
-// export default function LoginSubmitted({submitted}) {
-//   return(
-//     <div className="content-grid home-hero">
-//       <h1>Link sent!</h1>
-//       <p>Check your email ({submitted}) to finish logging in</p>
-//     </div>
-//   )
-
-// }
-
-// LoginSubmitted.js
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
 import { useState } from "react";
 import { useRouter } from "next/router";
