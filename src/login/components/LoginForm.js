@@ -6,14 +6,20 @@ export default function LoginForm({ setSubmitted }) {
   const [error, setError] = useState("");
   const [isLoading, setLoading] = useState(false);
 
+  // Function to validate email
+  const validateEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  }
+
   async function onSubmit(event) {
     setLoading(true);
     event.preventDefault();
     const email = event.target.elements.email.value;
 
-    // Email domain validation
-    if (!email.endsWith("@petronas.com") && !email.endsWith("@petronas.com.my")) {
-      setError("Email should end with @gmail.com or @gmail.com.my");
+    // Email format validation
+    if (!validateEmail(email)) {
+      setError("Please enter a valid email address");
       setLoading(false);
       return;
     }
