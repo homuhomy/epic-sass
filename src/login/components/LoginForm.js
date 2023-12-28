@@ -12,7 +12,7 @@ export default function LoginForm({ setSubmitted }) {
     const email = event.target.elements.email.value;
 
     // Email domain validation
-    if (!email.endsWith("@gmail.com") && !email.endsWith("@gmail.com.my")) {
+    if (!email.endsWith("@petronas.com") && !email.endsWith("@petronas.com.my")) {
       setError("Email should end with @gmail.com or @gmail.com.my");
       setLoading(false);
       return;
