@@ -10,7 +10,7 @@ export default function LoginForm({ setSubmitted }) {
   const validateEmail = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
-  }
+  };
 
   async function onSubmit(event) {
     setLoading(true);
@@ -25,26 +25,15 @@ export default function LoginForm({ setSubmitted }) {
     }
 
     try {
-      // Handle OTP authentication
-      const { user, error: authError } =
-        await supabaseClient.auth.signInWithOtp({
-          email,
-          options: {
-            shouldCreateUser: true,
-            emailRedirectTo: window.location.origin,
-          },
-        });
+      const { error: authError } = await supabaseClient.auth.signInWithOtp({
+        email,
+        options: {
+          shouldCreateUser: true,
+        },
+      });
 
       if (authError) throw authError;
-
-      // If the user is successfully authenticated, insert or update their profile
-      if (user) {
-        await supabaseClient
-          .from("profile")
-          .upsert({ auth_user_id: user.id, email: email });
-      }
-
-      setSubmitted(email);
+      setSubmitted(email); // Pass the email to the next step
     } catch (error) {
       setError(error.message);
     } finally {

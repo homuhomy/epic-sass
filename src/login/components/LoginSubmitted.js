@@ -21,14 +21,14 @@ export default function LoginSubmitted({ submitted }) {
 
   async function onVerify() {
     try {
-      // Verify the OTP token
-      const { user, error: verifyError } = await supabaseClient.auth.verifyOtp({
-        token_hash: otp,
+      const { data, error: verifyError } = await supabaseClient.auth.verifyOtp({
+        email: submitted,
+        token: otp,
         type: "email",
       });
 
       if (verifyError) throw verifyError;
-      if (user) {
+      if (data.session) {
         router.push("/success"); // Navigate to success page on successful verification
       }
     } catch (error) {
